@@ -1,4 +1,5 @@
 package pageObject;
+
 import org.openqa.selenium.WebDriver;
 
 public class MainPage extends BasePage {
@@ -9,11 +10,9 @@ public class MainPage extends BasePage {
         this.driver = driver;
     }
 
-    public String getTitle(){
+    public String getTitle() {
         return driver.getTitle();
     }
-
-
 
 
 }
