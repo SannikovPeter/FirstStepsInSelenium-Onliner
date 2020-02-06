@@ -10,13 +10,13 @@ public class InsertTests extends WebDriverSettings {
     private LoginSteps loginSteps;
 
     @Test
-    public void firstQuestTest(){
+    public void firstQuestTest() {
         FirstQuest firstQuest = new FirstQuest(driver);
         firstQuest.test1();
     }
 
     @BeforeTest
-    public void startInsertTests(){
+    public void startInsertTests() {
         MainPageSteps mainPageSteps = new MainPageSteps(PageFactory.initElements(driver, MainPage.class), driver);
         loginSteps = mainPageSteps.openLoginPage();
     }
@@ -40,16 +40,16 @@ public class InsertTests extends WebDriverSettings {
 
     @Test
     public void successGoogleInsert() {
-       loginSteps.googleLogin();
+        loginSteps.googleLogin();
     }
 
     @Test
-    public void successOpenRecoveryForm(){
+    public void successOpenRecoveryForm() {
         loginSteps.openRecoveryForm();
     }
 
     @Test
-    public void successOpenSignInForm(){
+    public void successOpenSignInForm() {
         loginSteps.openSignInForm();
     }
 

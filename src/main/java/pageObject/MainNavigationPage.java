@@ -2,9 +2,7 @@ package pageObject;
 
 import org.openqa.selenium.WebDriver;
 
-public class BasePage {
-
+public class MainNavigationPage extends BasePage {
     private WebDriver driver;
 
 }
-

@@ -48,7 +48,7 @@ public class LoginSteps extends BaseSteps {
         Assert.assertEquals(loginPage.FormTitle(), ВОССТАНОВЛЕНИЕ_ПАРОЛЯ);
     }
 
-    public void openSignInForm(){
+    public void openSignInForm() {
         loginPage.registration();
         Assert.assertEquals(loginPage.FormTitle(), РЕГИСТРАЦИЯ);
     }
