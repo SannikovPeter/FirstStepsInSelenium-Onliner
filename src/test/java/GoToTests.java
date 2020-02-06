@@ -3,48 +3,50 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pageObject.MainPage;
 import steps.MainPageSteps;
+import steps.NavigationSteps;
 
 public class GoToTests extends WebDriverSettings {
 
-    MainPageSteps mainPageSteps;
+    NavigationSteps navigationSteps;
 
     @BeforeTest
     public void startTestSettings() {
-        mainPageSteps = new MainPageSteps(PageFactory.initElements(driver, MainPage.class), driver);
+        MainPageSteps mainPageSteps = new MainPageSteps(PageFactory.initElements(driver, MainPage.class), driver);
+        navigationSteps = mainPageSteps.openNavigationPage();
     }
 
     @Test
     public void successOpenCatalog() {
-        mainPageSteps.openCatalog();
+        navigationSteps.openCatalog();
     }
 
     @Test
     public void successOpenNews() {
-        mainPageSteps.openNews();
+        navigationSteps.openNews();
     }
 
     @Test
     public void successOpenAuto() {
-        mainPageSteps.openAuto();
+        navigationSteps.openAuto();
     }
 
     @Test
     public void successOpenHouses() {
-        mainPageSteps.openHouses();
+        navigationSteps.openHouses();
     }
 
     @Test
     public void successOpenServices() {
-        mainPageSteps.openServices();
+        navigationSteps.openServices();
     }
 
     @Test
     public void successOpenFleaMarket() {
-        mainPageSteps.openFleaMarket();
+        navigationSteps.openFleaMarket();
     }
 
     @Test
     public void successOpenForum() {
-        mainPageSteps.openForum();
+        navigationSteps.openForum();
     }
 }

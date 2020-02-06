@@ -4,10 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
-
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class MainPage extends BasePage {
@@ -23,16 +20,9 @@ public class MainPage extends BasePage {
     private WebElement newFrame;
     @FindBy(css = ".search__input")
     private WebElement searchBar;
-    @FindAll(@FindBy(css = ".b-main-navigation__text"))
-    private List<WebElement> mainNavigationSelectors;
-
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
-    }
-
-    public String getTitle() {
-        return driver.getTitle();
     }
 
     public void OpenInsertForm() {
@@ -50,34 +40,6 @@ public class MainPage extends BasePage {
         searchBar.clear();
         searchBar.sendKeys(searchItem);
         driver.manage().timeouts().implicitlyWait(TIME, TimeUnit.SECONDS);
-    }
-
-    public void clickCatalogButton() {
-        mainNavigationSelectors.get(0).click();
-    }
-
-    public void clickNewsButton() {
-        mainNavigationSelectors.get(1).click();
-    }
-
-    public void clickAutoButton() {
-        mainNavigationSelectors.get(2).click();
-    }
-
-    public void clickHousesButton() {
-        mainNavigationSelectors.get(3).click();
-    }
-
-    public void clickServicesButton() {
-        mainNavigationSelectors.get(4).click();
-    }
-
-    public void clickFleaMarketButton() {
-        mainNavigationSelectors.get(5).click();
-    }
-
-    public void clickForumButton() {
-        mainNavigationSelectors.get(6).click();
     }
 
 }
