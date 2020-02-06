@@ -43,26 +43,26 @@ public class BasePage {
         driver.manage().timeouts().implicitlyWait(TIME, TimeUnit.SECONDS);
     }
 
-    public enum mainNavigationLinks {CATALOG,NEWS,AUTO,HOUSES,SERVICES,FLEA_MARKET,FORUM}
-
-    public void openMainNavigation(mainNavigationLinks h){
-        switch (h){
-            case CATALOG: mainNavigationSelectors.get(0).click();
-                break;
-            case NEWS: mainNavigationSelectors.get(1).click();
-                break;
-            case AUTO: mainNavigationSelectors.get(2).click();
-                break;
-            case HOUSES: mainNavigationSelectors.get(3).click();
-                break;
-            case SERVICES: mainNavigationSelectors.get(4).click();
-                break;
-            case FLEA_MARKET: mainNavigationSelectors.get(5).click();
-                break;
-            case FORUM: mainNavigationSelectors.get(6).click();
-                break;
-        }
+    public void clickCatalogButton(){
+        mainNavigationSelectors.get(0).click();
     }
-
+    public void clickNewsButton(){
+        mainNavigationSelectors.get(1).click();
+    }
+    public void clickAutoButton(){
+        mainNavigationSelectors.get(2).click();
+    }
+    public void clickHousesButton(){
+        mainNavigationSelectors.get(3).click();
+    }
+    public void clickServicesButton(){
+        mainNavigationSelectors.get(4).click();
+    }
+    public void clickFleaMarketButton(){
+        mainNavigationSelectors.get(5).click();
+    }
+    public void clickForumButton(){
+        mainNavigationSelectors.get(6).click();
+    }
 }
 
