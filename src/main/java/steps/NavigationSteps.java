@@ -1,7 +1,9 @@
 package steps;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import pageObject.DropDownNewsPage;
 import pageObject.NavigationPage;
 
 public class NavigationSteps extends BaseSteps {
@@ -15,7 +17,7 @@ public class NavigationSteps extends BaseSteps {
     private static final String FLUE_MARKET_TITLE = "Барахолка onliner.by - Главная страница";
     private static final String FORUM_TITLE = "Форум onliner.by - Главная страница";
 
-    public NavigationSteps(NavigationPage navigationPage, WebDriver driver) {
+    NavigationSteps(NavigationPage navigationPage, WebDriver driver) {
         super(driver);
         this.navigationPage = navigationPage;
     }

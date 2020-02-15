@@ -2,6 +2,7 @@ package steps;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import pageObject.DropDownNewsPage;
 import pageObject.MainPage;
 import pageObject.LoginPage;
 import pageObject.NavigationPage;
@@ -24,5 +25,8 @@ public class MainPageSteps extends BaseSteps {
         return new NavigationSteps(PageFactory.initElements(driver, NavigationPage.class), driver);
     }
 
+    public DropDownNewsSteps openDropDownNewsPage(){
+        return new DropDownNewsSteps(PageFactory.initElements(driver, DropDownNewsPage.class),driver);
+    }
 
 }

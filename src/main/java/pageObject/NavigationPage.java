@@ -48,4 +48,6 @@ public class NavigationPage extends BasePage {
     public void clickForumButton() {
         mainNavigationSelectors.get(6).click();
     }
+
+
 }
