@@ -13,8 +13,8 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class DropDownNewsPage extends BasePage {
-    public enum IndexesOfArrows {NEWS, CAR_MOTO, HOUSES}
 
+    public enum IndexesOfArrows {NEWS, CAR_MOTO, HOUSES}
     private static final short TIME = 10;
     private static final By newsLinks = By.cssSelector(".b-main-navigation__dropdown-news-link");
     private WebDriver driver;

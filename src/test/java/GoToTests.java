@@ -74,6 +74,7 @@ public class GoToTests extends WebDriverSettings {
 
     @Test
     public void testCarMarketTitle() {
+
         MainPageSteps mainPageSteps2 = new MainPageSteps(PageFactory.initElements(driver, MainPage.class), driver);
         DropDownNewsSteps dropDownNewsSteps = mainPageSteps2.openDropDownNewsPage();
         dropDownNewsSteps.clickOnCarMarketTitle(DropDownNewsSteps.Categories.CAR_MARKET);
