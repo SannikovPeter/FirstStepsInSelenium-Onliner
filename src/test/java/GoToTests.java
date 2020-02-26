@@ -2,82 +2,102 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pageObject.MainPage;
-import steps.DropDownNewsSteps;
+import steps.DropDownMenuSteps;
 import steps.MainPageSteps;
 import steps.NavigationSteps;
 
+import static pageObject.Category.*;
+import static pageObject.DropDownMenuPage.DropDownMenu.*;
+import static pageObject.NavigationPage.*;
+import static pageObject.NavigationPage.NavigationBar.*;
+
 public class GoToTests extends WebDriverSettings {
 
+    private MainPageSteps mainPageSteps;
     private NavigationSteps navigationSteps;
 
     @BeforeTest
     public void startTestSettings() {
-        MainPageSteps mainPageSteps = new MainPageSteps(PageFactory.initElements(driver, MainPage.class), driver);
+        mainPageSteps = new MainPageSteps(PageFactory.initElements(driver, MainPage.class), driver);
         navigationSteps = mainPageSteps.openNavigationPage();
     }
 
     @Test
     public void successOpenCatalog() {
-        navigationSteps.openCatalog();
+        NavigationBar button = CATALOG;
+
+        navigationSteps.checkSuccessFollowTheLink(button);
     }
 
     @Test
-    public void successOpenNews() {
-        navigationSteps.openNews();
+    public void successOpenNewsTest() {
+        navigationSteps.checkSuccessFollowTheLink(NEWS);
     }
 
     @Test
-    public void successOpenAuto() {
-        navigationSteps.openAuto();
+    public void successOpenAutoTest() {
+        navigationSteps.checkSuccessFollowTheLink(AUTOMOBILE);
     }
 
     @Test
-    public void successOpenHouses() {
-        navigationSteps.openHouses();
+    public void successOpenHousesTest() {
+        navigationSteps.checkSuccessFollowTheLink(HOUSES);
     }
 
     @Test
-    public void successOpenServices() {
-        navigationSteps.openServices();
+    public void successOpenServicesTest() {
+        navigationSteps.checkSuccessFollowTheLink(SERVICES);
     }
 
     @Test
-    public void successOpenFleaMarket() {
-        navigationSteps.openFleaMarket();
+    public void successOpenFlueMarketTest() {
+        navigationSteps.checkSuccessFollowTheLink(FLUE_MARKET);
     }
 
     @Test
-    public void successOpenForum() {
-        navigationSteps.openForum();
+    public void successOpenForumTest() {
+        navigationSteps.checkSuccessFollowTheLink(FORUM);
     }
 
     @Test
     public void testNewsTitle() {
-        MainPageSteps mainPageSteps2 = new MainPageSteps(PageFactory.initElements(driver, MainPage.class), driver);
-        DropDownNewsSteps dropDownNewsSteps = mainPageSteps2.openDropDownNewsPage();
-        dropDownNewsSteps.clickOnTitle(DropDownNewsSteps.Categories.PEOPLE);
+        DropDownMenuSteps dropDownMenuSteps;
+
+        dropDownMenuSteps = mainPageSteps.openDropDownNewsPage();
+        dropDownMenuSteps.checkSuccessClickOnTitle(NEWS_MENU, PEOPLE);
     }
 
     @Test
-    public void testNewsButton() {
-        MainPageSteps mainPageSteps2 = new MainPageSteps(PageFactory.initElements(driver, MainPage.class), driver);
-        DropDownNewsSteps dropDownNewsSteps = mainPageSteps2.openDropDownNewsPage();
-        dropDownNewsSteps.clickOnNewsButton(DropDownNewsSteps.Categories.PEOPLE);
+    public void testNewsPeopleButton() {
+        DropDownMenuSteps dropDownMenuSteps;
+
+        dropDownMenuSteps = mainPageSteps.openDropDownNewsPage();
+        dropDownMenuSteps.checkSuccessClickOnSectionButton(NEWS_MENU, PEOPLE);
     }
 
     @Test
     public void testNewsNumberOne() {
-        MainPageSteps mainPageSteps2 = new MainPageSteps(PageFactory.initElements(driver, MainPage.class), driver);
-        DropDownNewsSteps dropDownNewsSteps = mainPageSteps2.openDropDownNewsPage();
-        dropDownNewsSteps.clickOnNewsNumberOne(DropDownNewsSteps.Categories.PEOPLE);
+        int numberOfNews = 1;
+
+        DropDownMenuSteps dropDownMenuSteps;
+
+        dropDownMenuSteps = mainPageSteps.openDropDownNewsPage();
+        dropDownMenuSteps.clickOnNewsNumber(PEOPLE, numberOfNews);
     }
 
     @Test
     public void testCarMarketTitle() {
+        DropDownMenuSteps dropDownMenuSteps;
 
-        MainPageSteps mainPageSteps2 = new MainPageSteps(PageFactory.initElements(driver, MainPage.class), driver);
-        DropDownNewsSteps dropDownNewsSteps = mainPageSteps2.openDropDownNewsPage();
-        dropDownNewsSteps.clickOnCarMarketTitle(DropDownNewsSteps.Categories.CAR_MARKET);
+        dropDownMenuSteps = mainPageSteps.openDropDownNewsPage();
+        dropDownMenuSteps.checkSuccessClickOnTitle(CAR_MARKET_MENU, CAR_MARKET);
     }
 
+    @Test
+    public void testHousesTitle() {
+        DropDownMenuSteps dropDownMenuSteps;
+
+        dropDownMenuSteps = mainPageSteps.openDropDownNewsPage();
+        dropDownMenuSteps.checkSuccessClickOnTitle(HOUSE_MARKET_MENU, HOUSE_RENT);
+    }
 }

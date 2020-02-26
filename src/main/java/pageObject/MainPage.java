@@ -5,11 +5,11 @@ import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
 import java.util.concurrent.TimeUnit;
 
 public class MainPage extends BasePage {
 
-    private WebDriver driver;
     public static final int TIME = 10;
 
     @FindBy(css = ".auth-bar__item--text")
@@ -25,11 +25,11 @@ public class MainPage extends BasePage {
         this.driver = driver;
     }
 
-    public void OpenInsertForm() {
+    public void openInsertForm() {
         insert.click();
     }
 
-    public void Search(String searchItem) {
+    public void search(String searchItem) {
         try {
             fastSearchBar.sendKeys(searchItem);
         } catch (ElementNotInteractableException e) {

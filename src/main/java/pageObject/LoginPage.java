@@ -7,8 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+@FindBy
 public class LoginPage extends BasePage {
-    private WebDriver driver;
     private String originalWindowDescription;
 
     @FindBy(css = ".auth-button_primary")
@@ -59,7 +59,7 @@ public class LoginPage extends BasePage {
         forgetLocator.click();
     }
 
-    public String FormTitle() {
+    public String formTitle() {
         return formTitleMessage.getText();
     }
 
@@ -79,7 +79,7 @@ public class LoginPage extends BasePage {
         googleLocator.click();
     }
 
-    public String SuccessInsertPageTitle() {
+    public String checkSuccessInsertPageTitle() {
         Set<String> newWindowDescriptors = driver.getWindowHandles();
         newWindowDescriptors.remove(originalWindowDescription);
         String newWindowDescriptor = newWindowDescriptors.iterator().next();

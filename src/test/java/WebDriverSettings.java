@@ -4,7 +4,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 public class WebDriverSettings {
-    public WebDriver driver;
+    WebDriver driver;
 
     @BeforeTest
     public void WebSettings() {
@@ -16,8 +16,7 @@ public class WebDriverSettings {
     }
 
     @AfterTest
-    void closeBrowser()
-    {
+    void closeBrowser() {
         driver.quit();
     }
 }

@@ -4,8 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pageObject.LoginPage;
 
-import java.util.concurrent.TimeUnit;
-
 public class LoginSteps extends BaseSteps {
     private static final String НЕВЕРНЫЙ_ЛОГИН_ИЛИ_ПАРОЛЬ = "Неверный логин или пароль";
     private static final String ВОЙДИТЕ_НА_FACEBOOK_FACEBOOK = "Войдите на Facebook | Facebook";
@@ -30,26 +28,26 @@ public class LoginSteps extends BaseSteps {
 
     public void faceBookLogin() {
         loginPage.facebookInsert();
-        Assert.assertEquals(loginPage.SuccessInsertPageTitle(), ВОЙДИТЕ_НА_FACEBOOK_FACEBOOK);
+        Assert.assertEquals(loginPage.checkSuccessInsertPageTitle(), ВОЙДИТЕ_НА_FACEBOOK_FACEBOOK);
     }
 
     public void vKLogin() {
         loginPage.vkInsert();
-        Assert.assertEquals(loginPage.SuccessInsertPageTitle(), ВКОНТАКТЕ_ВХОД);
+        Assert.assertEquals(loginPage.checkSuccessInsertPageTitle(), ВКОНТАКТЕ_ВХОД);
     }
 
-    public void googleLogin() {
+    public void checkGoogleLogin() {
         loginPage.googleInsert();
-        Assert.assertEquals(loginPage.SuccessInsertPageTitle(), ВХОД_GOOGLE_АККАУНТЫ);
+        Assert.assertEquals(loginPage.checkSuccessInsertPageTitle(), ВХОД_GOOGLE_АККАУНТЫ);
     }
 
     public void openRecoveryForm() {
         loginPage.clickForgetPassword();
-        Assert.assertEquals(loginPage.FormTitle(), ВОССТАНОВЛЕНИЕ_ПАРОЛЯ);
+        Assert.assertEquals(loginPage.formTitle(), ВОССТАНОВЛЕНИЕ_ПАРОЛЯ);
     }
 
     public void openSignInForm() {
         loginPage.registration();
-        Assert.assertEquals(loginPage.FormTitle(), РЕГИСТРАЦИЯ);
+        Assert.assertEquals(loginPage.formTitle(), РЕГИСТРАЦИЯ);
     }
 }

@@ -40,7 +40,7 @@ public class InsertTests extends WebDriverSettings {
 
     @Test
     public void successGoogleInsert() {
-        loginSteps.googleLogin();
+        loginSteps.checkGoogleLogin();
     }
 
     @Test
