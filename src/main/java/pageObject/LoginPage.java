@@ -1,89 +1,73 @@
 package pageObject;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
+public class LoginPage {
 
-@FindBy
-public class LoginPage extends BasePage {
-    private String originalWindowDescription;
+    private static final By insertButtonLocator = By.cssSelector(".auth-button_primary");
+    private static final By userNameLocator = By.cssSelector("[placeholder=\"Ник или e-mail\"]");
+    private static final By passwordBarLocator = By.cssSelector("[type=\"password\"]");
+    private static final By recoverPasswordLocator = By.cssSelector("[href=\"https://profile.onliner.by/recover-password\"]");
+    private static final By registrationLocator = By.cssSelector("[href=\"https://profile.onliner.by/registration\"]");
+    private static final By faceBookInsertLocator = By.cssSelector(".auth-form__button_fb");
+    private static final By vKLocator = By.cssSelector(".auth-form__button_vk");
+    private static final By googleInsertLocator = By.cssSelector(".auth-form__button_gg");
 
-    @FindBy(css = ".auth-button_primary")
+    private WebDriver driver;
+
     private WebElement insertButton;
-    @FindBy(css = "[placeholder=\"Ник или e-mail\"]")
-    private WebElement userNameLocator;
-    @FindBy(css = "[type=\"password\"]")
-    private WebElement passwordLocator;
-    @FindBy(css = "[href=\"https://profile.onliner.by/registration\"]")
-    private WebElement registrationLocator;
-    @FindBy(css = "[href=\"https://profile.onliner.by/recover-password\"]")
-    private WebElement forgetLocator;
-    @FindBy(css = ".auth-form__description_error")
-    private WebElement insertErrorMessage;
-    @FindBy(css = ".auth-form__title_condensed-default")
-    private WebElement formTitleMessage;
-    @FindBy(css = ".auth-form__button_fb")
-    private WebElement fbLocator;
-    @FindBy(css = ".auth-form__button_vk")
-    private WebElement vkLocator;
-    @FindBy(css = ".auth-form__button_gg")
-    private WebElement googleLocator;
+    private WebElement userNameBar;
+    private WebElement passwordBar;
+    private WebElement registration;
+    private WebElement recoverPassword;
+    private WebElement fbInsertButton;
+    private WebElement vkInsertButton;
+    private WebElement ggInsertButton;
 
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
-        originalWindowDescription = driver.getWindowHandle();
     }
 
-    public void clickInsertButton() {
-        insertButton.click();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    public WebElement insertButton() {
+        insertButton = driver.findElement(insertButtonLocator);
+        return insertButton;
     }
 
-    public String errorMessage() {
-        return insertErrorMessage.getText();
+    public WebElement login() {
+        userNameBar = driver.findElement(userNameLocator);
+        return userNameBar;
     }
 
-    public void insertName(String name) {
-        userNameLocator.sendKeys(name);
+    public WebElement password() {
+        passwordBar = driver.findElement(passwordBarLocator);
+        return passwordBar;
     }
 
-    public void insertPassword(String password) {
-        passwordLocator.sendKeys(password);
+    public WebElement recoverForgottenPassword() {
+        recoverPassword = driver.findElement(recoverPasswordLocator);
+        return recoverPassword;
     }
 
-    public void clickForgetPassword() {
-        forgetLocator.click();
+    public WebElement registration() {
+        registration = driver.findElement(registrationLocator);
+        return registration;
     }
 
-    public String formTitle() {
-        return formTitleMessage.getText();
+    public WebElement facebookInsert() {
+        fbInsertButton = driver.findElement(faceBookInsertLocator);
+        return fbInsertButton;
     }
 
-    public void registration() {
-        registrationLocator.click();
+    public WebElement vkInsert() {
+        vkInsertButton = driver.findElement(vKLocator);
+        return vkInsertButton;
     }
 
-    public void facebookInsert() {
-        fbLocator.click();
-    }
-
-    public void vkInsert() {
-        vkLocator.click();
-    }
-
-    public void googleInsert() {
-        googleLocator.click();
-    }
-
-    public String checkSuccessInsertPageTitle() {
-        Set<String> newWindowDescriptors = driver.getWindowHandles();
-        newWindowDescriptors.remove(originalWindowDescription);
-        String newWindowDescriptor = newWindowDescriptors.iterator().next();
-        driver.switchTo().window(newWindowDescriptor);
-        return driver.getTitle();
+    public WebElement googleInsert() {
+        ggInsertButton = driver.findElement(googleInsertLocator);
+        return ggInsertButton;
     }
 }

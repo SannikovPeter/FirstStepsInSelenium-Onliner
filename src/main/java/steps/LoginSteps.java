@@ -19,35 +19,35 @@ public class LoginSteps extends BaseSteps {
         this.loginPage = loginPage;
     }
 
-    public void login(String login, String pass) {
-        loginPage.insertName(login);
-        loginPage.insertPassword(pass);
-        loginPage.clickInsertButton();
-        Assert.assertEquals(loginPage.errorMessage(), НЕВЕРНЫЙ_ЛОГИН_ИЛИ_ПАРОЛЬ);
-    }
-
-    public void faceBookLogin() {
-        loginPage.facebookInsert();
-        Assert.assertEquals(loginPage.checkSuccessInsertPageTitle(), ВОЙДИТЕ_НА_FACEBOOK_FACEBOOK);
-    }
-
-    public void vKLogin() {
-        loginPage.vkInsert();
-        Assert.assertEquals(loginPage.checkSuccessInsertPageTitle(), ВКОНТАКТЕ_ВХОД);
-    }
-
-    public void checkGoogleLogin() {
-        loginPage.googleInsert();
-        Assert.assertEquals(loginPage.checkSuccessInsertPageTitle(), ВХОД_GOOGLE_АККАУНТЫ);
-    }
-
-    public void openRecoveryForm() {
-        loginPage.clickForgetPassword();
-        Assert.assertEquals(loginPage.formTitle(), ВОССТАНОВЛЕНИЕ_ПАРОЛЯ);
-    }
-
-    public void openSignInForm() {
-        loginPage.registration();
-        Assert.assertEquals(loginPage.formTitle(), РЕГИСТРАЦИЯ);
-    }
+//    public void login(String login, String pass) {
+//        loginPage.insertName(login);
+//        loginPage.insertPassword(pass);
+//        loginPage.clickInsertButton();
+//        Assert.assertEquals(loginPage.errorMessage(), НЕВЕРНЫЙ_ЛОГИН_ИЛИ_ПАРОЛЬ);
+//    }
+//
+//    public void faceBookLogin() {
+//        loginPage.facebookInsert();
+//        Assert.assertEquals(loginPage.checkSuccessInsertPageTitle(), ВОЙДИТЕ_НА_FACEBOOK_FACEBOOK);
+//    }
+//
+//    public void vKLogin() {
+//        loginPage.vkInsert();
+//        Assert.assertEquals(loginPage.checkSuccessInsertPageTitle(), ВКОНТАКТЕ_ВХОД);
+//    }
+//
+//    public void checkGoogleLogin() {
+//        loginPage.googleInsert();
+//        Assert.assertEquals(loginPage.checkSuccessInsertPageTitle(), ВХОД_GOOGLE_АККАУНТЫ);
+//    }
+//
+//    public void openRecoveryForm() {
+//        loginPage.clickForgetPassword();
+//        Assert.assertEquals(loginPage.formTitle(), ВОССТАНОВЛЕНИЕ_ПАРОЛЯ);
+//    }
+//
+//    public void openSignInForm() {
+//        loginPage.registration();
+//        Assert.assertEquals(loginPage.formTitle(), РЕГИСТРАЦИЯ);
+//    }
 }
