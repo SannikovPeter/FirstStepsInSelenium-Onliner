@@ -1,4 +1,4 @@
-package pageObject.header;
+package pageObject.BasePage.header.NavigationBar;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -26,12 +26,12 @@ public class CategoryOfDropDown {
         return categoryTitle;
     }
 
-    public WebElement getColumnButton(){
+    public WebElement getColumnButton() {
         columnButton = categoryLocator.findElement(categoryButtonLocator);
         return columnButton;
     }
 
-    public Column getColumn(Integer numberOfColumn){
+    public Column getColumn(Integer numberOfColumn) {
         columns = categoryLocator.findElements(categoryColumnLocator);
         return new Column(columns.get(numberOfColumn));
     }

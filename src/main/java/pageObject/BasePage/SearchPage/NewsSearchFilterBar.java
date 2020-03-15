@@ -1,4 +1,4 @@
-package pageObject.SearchPage;
+package pageObject.BasePage.SearchPage;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -14,14 +14,14 @@ public class NewsSearchFilterBar {
     private List<WebElement> dropDownHandles;
     private WebElement dropDownMenu;
 
-    public enum Filters{SECTION,PERIOD,TYPE}
+    public enum Filters {SECTION, PERIOD, TYPE}
 
     public NewsSearchFilterBar(WebElement searchFilterBarLocator) {
         this.searchFilterBarLocator = searchFilterBarLocator;
     }
 
     public List<WebElement> getDropDownHandles() {
-        return dropDownHandles = searchFilterBarLocator.findElements(dropDownHandleLocator) ;
+        return dropDownHandles = searchFilterBarLocator.findElements(dropDownHandleLocator);
     }
 
     private WebElement getDropDownMenu(Filters filter) {
@@ -29,12 +29,12 @@ public class NewsSearchFilterBar {
         return dropDownMenu = getDropDownHandles().get(filter.ordinal()).findElement(dropDownMenuLocator);
     }
 
-    public List<WebElement> getDropDownCheckBoxes(Filters filter){
+    public List<WebElement> getDropDownCheckBoxes(Filters filter) {
         getDropDownHandles().get(filter.ordinal()).click();
         return getDropDownMenu(filter).findElements(dropDownCheckBoxLocator);
     }
 
-    public WebElement getOnlyWithVideoCheckBox(){
+    public WebElement getOnlyWithVideoCheckBox() {
         return searchFilterBarLocator.findElement(onlyWithVideoCheckBoxLocator);
     }
 

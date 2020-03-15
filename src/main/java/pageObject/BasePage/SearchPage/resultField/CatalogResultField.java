@@ -1,4 +1,4 @@
-package pageObject.SearchPage.resultField;
+package pageObject.BasePage.SearchPage.resultField;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

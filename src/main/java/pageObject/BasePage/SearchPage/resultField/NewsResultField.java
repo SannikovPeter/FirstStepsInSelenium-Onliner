@@ -1,8 +1,8 @@
-package pageObject.SearchPage.resultField;
+package pageObject.BasePage.SearchPage.resultField;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import pageObject.SearchPage.NewsSearchFilterBar;
+import pageObject.BasePage.SearchPage.NewsSearchFilterBar;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public class NewsResultField {
     private WebElement searchPage;
     private List<WebElement> resultNews;
 
-    public NewsResultField(WebElement searchResults,WebElement searchPage) {
+    public NewsResultField(WebElement searchResults, WebElement searchPage) {
         this.searchResults = searchResults;
         this.searchPage = searchPage;
     }
@@ -22,7 +22,7 @@ public class NewsResultField {
         return resultNews = searchResults.findElements(resultNewsLocator);
     }
 
-    public NewsSearchFilterBar getFilterBar(){
+    public NewsSearchFilterBar getFilterBar() {
         return new NewsSearchFilterBar(searchPage.findElement(searchFilterBarLocator));
     }
 

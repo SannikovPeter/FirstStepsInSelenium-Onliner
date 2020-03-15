@@ -1,7 +1,8 @@
-package pageObject;
+package pageObject.Pages;
 
 import org.openqa.selenium.WebDriver;
-import pageObject.SearchPage.SearchPage;
+import pageObject.BasePage.BasePage;
+import pageObject.BasePage.SearchPage.SearchPage;
 
 public class MainPage extends BasePage {
 

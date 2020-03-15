@@ -2,14 +2,14 @@ package steps;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageObject.BasePage;
-import pageObject.SearchPage.SearchPage;
-import pageObject.header.DropDownMenu;
-import pageObject.header.NavigationBar;
+import pageObject.BasePage.BasePage;
+import pageObject.BasePage.SearchPage.SearchPage;
+import pageObject.BasePage.header.NavigationBar.DropDownMenu;
+import pageObject.BasePage.header.NavigationBar.NavigationBar;
 
 import java.time.Duration;
 
-import static pageObject.SearchPage.NewsSearchFilterBar.Filters.*;
+import static pageObject.BasePage.SearchPage.NewsSearchFilterBar.Filters.*;
 
 public class BaseSteps {
     private static final int WAIT_TIME = 5;
@@ -17,7 +17,7 @@ public class BaseSteps {
     protected WebDriver driver;
     private WebDriverWait wait;
 
-    public BaseSteps(BasePage basePage,WebDriver driver) {
+    public BaseSteps(BasePage basePage, WebDriver driver) {
         this.basePage = basePage;
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIME));
@@ -27,7 +27,7 @@ public class BaseSteps {
         this.driver = driver;
     }
 
-    public void search(String searchText){
+    public void search(String searchText) {
         basePage.getHeader().getFastSearchBar().sendKeys(searchText);
         basePage.switchFrame();
         SearchPage searchPage = basePage.getSearchPage();

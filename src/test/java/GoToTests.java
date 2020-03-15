@@ -1,18 +1,18 @@
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import pageObject.BasePage;
+import pageObject.BasePage.BasePage;
 import steps.BaseSteps;
 
-import static pageObject.header.DropDownMenu.DropDownCategory.CAR_NEWS;
-import static pageObject.header.NavigationBar.DropDownMenuType.*;
+import static pageObject.BasePage.header.NavigationBar.DropDownMenu.DropDownCategory.CAR_NEWS;
+import static pageObject.BasePage.header.NavigationBar.NavigationBar.DropDownMenuType.NEWS_MENU;
 
 public class GoToTests extends WebDriverSettings {
 
     BaseSteps baseSteps;
 
     @BeforeTest
-    public void start(){
+    public void start() {
         baseSteps = new BaseSteps(PageFactory.initElements(driver, BasePage.class), driver);
     }
 
@@ -21,8 +21,8 @@ public class GoToTests extends WebDriverSettings {
         baseSteps.checkSuccessClickOnTitle(NEWS_MENU, CAR_NEWS);
     }
 
-     @Test
-    public void fastSearchTest(){
+    @Test
+    public void fastSearchTest() {
         baseSteps.search("Пылесос");
     }
 }

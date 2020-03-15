@@ -1,7 +1,7 @@
 package steps;
 
 import org.openqa.selenium.WebDriver;
-import pageObject.MainPage;
+import pageObject.Pages.MainPage;
 
 public class MainPageSteps extends BaseSteps {
 

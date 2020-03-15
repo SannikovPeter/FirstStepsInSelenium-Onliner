@@ -1,4 +1,4 @@
-package pageObject.header;
+package pageObject.BasePage.header.NavigationBar;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

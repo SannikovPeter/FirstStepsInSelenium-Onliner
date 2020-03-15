@@ -1,8 +1,7 @@
 package steps;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
-import pageObject.LoginPage;
+import pageObject.BasePage.LoginPage;
 
 public class LoginSteps extends BaseSteps {
     private static final String НЕВЕРНЫЙ_ЛОГИН_ИЛИ_ПАРОЛЬ = "Неверный логин или пароль";

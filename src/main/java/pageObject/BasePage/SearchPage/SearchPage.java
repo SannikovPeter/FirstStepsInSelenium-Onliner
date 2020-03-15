@@ -1,13 +1,16 @@
-package pageObject.SearchPage;
+package pageObject.BasePage.SearchPage;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import pageObject.SearchPage.resultField.*;
+import pageObject.BasePage.SearchPage.resultField.CatalogResultField;
+import pageObject.BasePage.SearchPage.resultField.FleaMarketResultField;
+import pageObject.BasePage.SearchPage.resultField.ForumResultField;
+import pageObject.BasePage.SearchPage.resultField.NewsResultField;
 
 import java.util.List;
 
-import static pageObject.SearchPage.SearchPage.SearchCategory.*;
+import static pageObject.BasePage.SearchPage.SearchPage.SearchCategory.*;
 
 public class SearchPage {
 
@@ -18,6 +21,7 @@ public class SearchPage {
     private static final By searchResultFieldLocator = By.cssSelector(".search__results");
 
     public enum SearchCategory {IN_CATALOG, IN_NEWS, AT_FLEA_MARKET, ON_THE_FORUM}
+
     private List<WebElement> searchTab;
     private WebElement searchPage;
 
@@ -42,9 +46,10 @@ public class SearchPage {
         getSearchCategoryButton(IN_CATALOG).click();
         return new CatalogResultField(searchPage.findElement(searchResultFieldLocator));
     }
-    public NewsResultField getNewsResultField(){
+
+    public NewsResultField getNewsResultField() {
         getSearchCategoryButton(IN_NEWS).click();
-        return new NewsResultField(searchPage.findElement(searchResultFieldLocator),searchPage);
+        return new NewsResultField(searchPage.findElement(searchResultFieldLocator), searchPage);
     }
 
     public FleaMarketResultField getFleaMarketResultField() {

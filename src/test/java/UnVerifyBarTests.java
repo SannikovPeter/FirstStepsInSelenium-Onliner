@@ -1,11 +1,7 @@
-import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import pageObject.MainPage;
-import steps.MainPageSteps;
 import steps.LoginSteps;
 
-public class InsertTests extends WebDriverSettings {
+public class UnVerifyBarTests extends WebDriverSettings {
 
     private LoginSteps loginSteps;
 
