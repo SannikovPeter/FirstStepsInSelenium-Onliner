@@ -16,7 +16,6 @@ public class CatalogResultField {
         this.searchResults = searchResults;
     }
 
-
     public List<WebElement> getResultCategoriesList() {
         return resultCategoriesList = searchResults.findElements(resultCategoryLocator);
     }
@@ -24,16 +23,5 @@ public class CatalogResultField {
     public List<WebElement> getResultProductsList() {
         return resultProductsList = searchResults.findElements(resultProductLocator);
     }
-
-    public WebElement getResultCategory(Integer index) {
-        getResultCategoriesList();
-        return resultCategoriesList.get(index);
-    }
-
-    public WebElement getResultProduct(Integer index) {
-        getResultProductsList();
-        return resultProductsList.get(index);
-    }
-
 
 }

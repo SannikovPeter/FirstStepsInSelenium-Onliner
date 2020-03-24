@@ -1,7 +1,9 @@
 package pageObject.BasePage.header.UserBar;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import pageObject.CartPage;
 
 public class UserBar {
 
@@ -22,25 +24,12 @@ public class UserBar {
         }
     }
 
-    private boolean activity;
-
     private WebElement userBarLocator;
+    private WebDriver driver;
 
-    public UserBar(WebElement userBarLocator) {
+    public UserBar(WebElement userBarLocator, WebDriver driver) {
+        this.driver = driver;
         this.userBarLocator = userBarLocator;
-        activity = false;
-    }
-
-    public boolean isActivity() {
-        return activity;
-    }
-
-    public void activate() {
-        activity = true;
-    }
-
-    public void deactivate() {
-        activity = false;
     }
 
     public WebElement getUserBarButton(UnVerifyBar unVerifyBarButton) {
@@ -49,6 +38,10 @@ public class UserBar {
 
     public VerifyUserBar getVerifyUserBar() {
         return new VerifyUserBar(userBarLocator);
+    }
+
+    public CartPage getCartPage(){
+        return new CartPage(driver);
     }
 
 }

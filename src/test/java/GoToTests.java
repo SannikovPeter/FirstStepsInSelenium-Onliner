@@ -1,28 +1,41 @@
-import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import pageObject.BasePage.BasePage;
-import steps.BaseSteps;
-
-import static pageObject.BasePage.header.NavigationBar.DropDownMenu.DropDownCategory.CAR_NEWS;
-import static pageObject.BasePage.header.NavigationBar.NavigationBar.DropDownMenuType.NEWS_MENU;
+import steps.BasePageSteps;
+import steps.MainPageSteps;
 
 public class GoToTests extends WebDriverSettings {
 
-    BaseSteps baseSteps;
+    BasePageSteps basePageSteps;
+    MainPageSteps mainPageSteps;
 
     @BeforeTest
     public void start() {
-        baseSteps = new BaseSteps(PageFactory.initElements(driver, BasePage.class), driver);
-    }
-
-    @Test
-    public void testNewsTitle() {
-        baseSteps.checkSuccessClickOnTitle(NEWS_MENU, CAR_NEWS);
+        basePageSteps = new BasePageSteps(driver);
     }
 
     @Test
     public void fastSearchTest() {
-        baseSteps.search("Пылесос");
+        basePageSteps.search("Пылесос");
+    }
+
+    @Test
+    public void insertTest() {
+        basePageSteps.login("Piter", "12345");
+    }
+
+    @Test
+    public void middleNavigationBarTest() {
+        mainPageSteps = new MainPageSteps(driver);
+        mainPageSteps.fastTilesFieldClick(1);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void insertFaceBookTest(){
+        basePageSteps.faceBookLogin();
     }
 }

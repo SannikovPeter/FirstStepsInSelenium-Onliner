@@ -23,13 +23,9 @@ public class NavigationBar {
 
     private WebDriver driver;
 
-    private List<WebElement> navigationBarButtonLocators;
+    private List<WebElement> navigationBarButtons;
     private List<WebElement> arrowButtonsLocators;
     private List<WebElement> dropDownMenuLocators;
-    private WebElement currencyButton;
-    private WebElement weatherButton;
-    private WebElement sellCarButton;
-    private WebElement pizzaButton;
 
     private WebElement navigationBarLocator;
 
@@ -46,8 +42,8 @@ public class NavigationBar {
     }
 
     public WebElement getNavigationButton(NavigationButton navigationButton) {
-        navigationBarButtonLocators = navigationBarLocator.findElements(navigationButtonLocator);
-        return navigationBarButtonLocators.get(navigationButton.ordinal());
+        navigationBarButtons = navigationBarLocator.findElements(navigationButtonLocator);
+        return navigationBarButtons.get(navigationButton.ordinal());
     }
 
     public DropDownMenu getDropDownMenu(DropDownMenuType menuType) {
@@ -57,22 +53,18 @@ public class NavigationBar {
     }
 
     public WebElement getCurrency() {
-        currencyButton = navigationBarLocator.findElement(currencyLocator);
-        return currencyButton;
+        return navigationBarLocator.findElement(currencyLocator);
     }
 
     public WebElement getWeather() {
-        weatherButton = navigationBarLocator.findElement(weatherLocator);
-        return weatherButton;
+        return navigationBarLocator.findElement(weatherLocator);
     }
 
     public WebElement getSellCar() {
-        sellCarButton = navigationBarLocator.findElement(sellCarLocator);
-        return sellCarButton;
+        return  navigationBarLocator.findElement(sellCarLocator);
     }
 
     public WebElement getPizza() {
-        pizzaButton = navigationBarLocator.findElement(pizzaLocator);
-        return pizzaButton;
+        return navigationBarLocator.findElement(pizzaLocator);
     }
 }

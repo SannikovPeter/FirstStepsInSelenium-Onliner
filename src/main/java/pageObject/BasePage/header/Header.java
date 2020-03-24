@@ -30,7 +30,7 @@ public class Header {
     }
 
     public UserBar getUserBar() {
-        userBar = new UserBar(driver.findElement(userBarLocator));
+        userBar = new UserBar(driver.findElement(userBarLocator),driver);
         return userBar;
     }
 

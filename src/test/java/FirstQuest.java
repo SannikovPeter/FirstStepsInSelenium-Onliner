@@ -1,56 +1,29 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import steps.MainPageSteps;
+import steps.ProductPageSteps;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
+public class FirstQuest extends WebDriverSettings {
 
-//Первое задание
+    @Test
+    public void firstQuest() {
+        String SEARCH_TEXT = "Пылесос";
+        int[] searchIndex = {1,2};
 
-public class FirstQuest {
-    private WebDriver driver;
+        MainPageSteps mainPageSteps = new MainPageSteps(driver);
+        ProductPageSteps productPageSteps;
 
-    public FirstQuest(WebDriver driver) {
-        this.driver = driver;
-    }
+        for (int i = 0; i < searchIndex.length; i++) {
+            mainPageSteps.search(SEARCH_TEXT);
+            mainPageSteps.getSearchResult(searchIndex[i]).click();
 
-    void test1() {
-        driver.get("https://onliner.by/");
-
-        findItem("Пылесос");
-        addItemNumber(1);
-        findItem("Пылесосы");
-        addItemNumber(2);
-        driver.get("https://cart.onliner.by/");
-        List<WebElement> items = driver.findElements(By.cssSelector(".cart-form__offers-item_secondary"));
-        System.out.println("Колличество покупок равно: " + items.size());
-    }
-
-    private void findItem(String item) {
-        driver.findElement(By.cssSelector(".fast-search__input")).sendKeys(item);
-        driver.switchTo().frame(driver.findElement(By.cssSelector(".modal-iframe")));
-        WebElement searchBox = driver.findElement(By.cssSelector(".search__input"));
-        searchBox.clear();
-        searchBox.sendKeys(item);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    }
-
-    private void addItemNumber(int number) {
-        List<WebElement> searchList = driver.findElements(By.cssSelector(".result__item_product"));
-        List<WebElement> acceptableList = new ArrayList<WebElement>();
-        for (WebElement item : searchList) {
-            String price = item.findElement(By.cssSelector(".product__price")).getText();
-            if (price.equals("Нет в наличии")) {
-                continue;
-            }
-            if (!price.equals("Снят с продажи")) {
-                acceptableList.add(item);
-            }
+            productPageSteps = new ProductPageSteps(driver);
+            productPageSteps.openAllOffers();
+            productPageSteps.addCheapestOffer();
         }
-        acceptableList.get(number - 1).findElement(By.cssSelector(".product__title-link")).click();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.findElement(By.cssSelector(".button_big")).click();
-        driver.findElement(By.cssSelector(".offers-list__button_basket")).click();
+
+        int amountOfUnitsInCart = mainPageSteps.amountUnitsInCart();
+        Assert.assertEquals(searchIndex.length,amountOfUnitsInCart,"Колличество товаров в корзине не совпадает с заданием");
     }
+
 }
