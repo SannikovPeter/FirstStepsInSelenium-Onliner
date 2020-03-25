@@ -26,16 +26,8 @@ public class GoToTests extends WebDriverSettings {
     @Test
     public void middleNavigationBarTest() {
         mainPageSteps = new MainPageSteps(driver);
+
         mainPageSteps.fastTilesFieldClick(1);
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
-    @Test
-    public void insertFaceBookTest(){
-        basePageSteps.faceBookLogin();
-    }
 }

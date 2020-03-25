@@ -3,7 +3,7 @@ package pageObject.BasePage.header.UserBar;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import pageObject.CartPage;
+import pageObject.CartPage.CartPage;
 
 public class UserBar {
 
@@ -40,7 +40,7 @@ public class UserBar {
         return new VerifyUserBar(userBarLocator);
     }
 
-    public CartPage getCartPage(){
+    public CartPage getCartPage() {
         return new CartPage(driver);
     }
 

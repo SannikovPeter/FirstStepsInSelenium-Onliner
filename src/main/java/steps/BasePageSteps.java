@@ -9,7 +9,8 @@ import pageObject.BasePage.SearchPage.SearchPage;
 import pageObject.BasePage.header.UserBar.UserBar;
 
 import static pageObject.BasePage.LoginPage.LoginPageButton.*;
-import static pageObject.BasePage.header.UserBar.UserBar.UnVerifyBar.*;
+import static pageObject.BasePage.header.UserBar.UserBar.UnVerifyBar.CART_BUTTON;
+import static pageObject.BasePage.header.UserBar.UserBar.UnVerifyBar.INSERT_BUTTON;
 
 public class BasePageSteps {
 
@@ -42,15 +43,9 @@ public class BasePageSteps {
         loginPage.getLoginPageLocator(INSERT).click();
     }
 
-    public void faceBookLogin(){
-        basePage.getHeader().getUserBar().getUserBarButton(FACEBOOK).click();
-    }
-
-    public int amountUnitsInCart(){
+    public void getCart(){
         UserBar userBar = basePage.getHeader().getUserBar();
-
         userBar.getUserBarButton(CART_BUTTON).click();
-        return userBar.getCartPage().getCartOfferUnitsList().size();
     }
 }
 

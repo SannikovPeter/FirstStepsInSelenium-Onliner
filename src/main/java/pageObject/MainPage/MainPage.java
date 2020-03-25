@@ -16,8 +16,6 @@ public class MainPage extends BasePage {
     private static final By tileLocator = By.cssSelector(".b-tile");
 
     private WebDriver driver;
-    private WebElement fastTilesField;//
-    private List<WebElement> tiles;//b-tile
 
     public MainPage(WebDriver driver) {
         super(driver);
