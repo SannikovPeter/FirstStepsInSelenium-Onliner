@@ -1,4 +1,4 @@
-package pageObject.CartPage;
+package pageObject.BasePage.CartPage;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

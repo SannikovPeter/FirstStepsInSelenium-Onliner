@@ -2,15 +2,13 @@ package steps;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import pageObject.CartPage.CartPage;
+import pageObject.BasePage.CartPage.CartPage;
 
 public class CartPageSteps {
 
     private CartPage cartPage;
-    private WebDriver driver;
 
     public CartPageSteps(WebDriver driver) {
-        this.driver = driver;
         cartPage = PageFactory.initElements(driver, CartPage.class);
     }
 

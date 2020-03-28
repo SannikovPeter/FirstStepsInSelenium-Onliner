@@ -3,7 +3,7 @@ package pageObject.BasePage.header.UserBar;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import pageObject.CartPage.CartPage;
+import pageObject.BasePage.CartPage.CartPage;
 
 public class UserBar {
 

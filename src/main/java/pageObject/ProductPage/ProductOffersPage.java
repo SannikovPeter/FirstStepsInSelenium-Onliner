@@ -20,10 +20,10 @@ public class ProductOffersPage {
     public ProductOffersPage(WebElement productOffersPageLocator, WebDriver driver) {
         this.driver = driver;
         this.productOffersPageLocator = productOffersPageLocator;
+        offersLocators = productOffersPageLocator.findElements(offersLocator);
     }
 
     public List<WebElement> getOffersLocators() {
-        offersLocators = productOffersPageLocator.findElements(offersLocator);
         return offersLocators;
     }
 
