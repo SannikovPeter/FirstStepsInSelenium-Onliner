@@ -61,7 +61,7 @@ public class NavigationBar {
     }
 
     public WebElement getSellCar() {
-        return  navigationBarLocator.findElement(sellCarLocator);
+        return navigationBarLocator.findElement(sellCarLocator);
     }
 
     public WebElement getPizza() {

@@ -1,12 +1,14 @@
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import steps.BasePageSteps;
+import steps.LoginPageSteps;
 import steps.MainPageSteps;
 
 public class GoToTests extends WebDriverSettings {
 
     BasePageSteps basePageSteps;
     MainPageSteps mainPageSteps;
+    LoginPageSteps loginPageSteps;
 
     @BeforeTest
     public void start() {
@@ -14,13 +16,13 @@ public class GoToTests extends WebDriverSettings {
     }
 
     @Test
-    public void fastSearchTest() {
-        basePageSteps.search("Пылесос");
-    }
-
-    @Test
     public void insertTest() {
-        basePageSteps.login("Piter", "12345");
+        String loginName = "Piter";
+        String loginPassword = "12345";
+
+        basePageSteps.openLoginPage();
+        loginPageSteps = new LoginPageSteps(driver);
+        loginPageSteps.login(loginName, loginPassword);
     }
 
     @Test

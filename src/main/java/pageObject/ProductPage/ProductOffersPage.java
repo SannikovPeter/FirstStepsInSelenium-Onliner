@@ -36,7 +36,7 @@ public class ProductOffersPage {
         double valueOfCheapestOffer = 0;
         for (int i = 0; i < getOffersLocators().size(); i++) {
             String price = getOffer(i).getPrice().getText();
-            Double priceDouble = Double.parseDouble(price.replace(',', '.'));
+            Double priceDouble = Double.parseDouble(price.replace(',', '.'));////??????
             if (i == 0) {
                 valueOfCheapestOffer = priceDouble;
             }

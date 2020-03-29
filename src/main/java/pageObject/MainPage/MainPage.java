@@ -30,11 +30,11 @@ public class MainPage extends BasePage {
         return getMiddleNavigationBar().findElements(middleNavigationBarLinkLocator);
     }
 
-    public WebElement getSamsungButton(){
+    public WebElement getSamsungButton() {
         return getMiddleNavigationBar().findElement(samsungButtonLocator);
     }
 
-    private WebElement getFastTilesField(){
+    private WebElement getFastTilesField() {
         return driver.findElement(fastTilesFieldLocator);
     }
 

@@ -10,9 +10,8 @@ public class NewsSearchFilterBar {
     private static final By dropDownMenuLocator = By.cssSelector(".dropdown-style_small");
     private static final By dropDownCheckBoxLocator = By.cssSelector(".dropdown-style__checkbox-text");
     private static final By onlyWithVideoCheckBoxLocator = By.cssSelector(".search__filter-checkbox");
+
     private WebElement searchFilterBarLocator;
-    private List<WebElement> dropDownHandles;
-    private WebElement dropDownMenu;
 
     public enum Filters {SECTION, PERIOD, TYPE}
 
@@ -21,12 +20,12 @@ public class NewsSearchFilterBar {
     }
 
     public List<WebElement> getDropDownHandles() {
-        return dropDownHandles = searchFilterBarLocator.findElements(dropDownHandleLocator);
+        return searchFilterBarLocator.findElements(dropDownHandleLocator);
     }
 
     private WebElement getDropDownMenu(Filters filter) {
         getDropDownHandles().get(filter.ordinal()).click();
-        return dropDownMenu = getDropDownHandles().get(filter.ordinal()).findElement(dropDownMenuLocator);
+        return getDropDownHandles().get(filter.ordinal()).findElement(dropDownMenuLocator);
     }
 
     public List<WebElement> getDropDownCheckBoxes(Filters filter) {

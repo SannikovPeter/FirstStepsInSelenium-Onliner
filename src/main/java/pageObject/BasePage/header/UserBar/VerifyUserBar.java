@@ -33,12 +33,8 @@ public class VerifyUserBar {
         return verifyUserBar.findElement(By.cssSelector(button.title));
     }
 
-    private void activateDropDownMenu() {
-        getVerifyUserBarButton(VerifyUserBarButton.DROP_DOWN_ARROW).click();
-    }
-
     public UserBarDropDownMenu getUserBarDropDownMenu() {
-        activateDropDownMenu();
+        getVerifyUserBarButton(VerifyUserBarButton.DROP_DOWN_ARROW).click();
         return new UserBarDropDownMenu(verifyUserBar.findElement(dropDownMenuLocator));
     }
 

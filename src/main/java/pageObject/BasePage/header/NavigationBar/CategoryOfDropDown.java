@@ -11,9 +11,6 @@ public class CategoryOfDropDown {
     private static final By categoryButtonLocator = By.cssSelector(".b-main-navigation__dropdown-button");
     private static final By categoryColumnLocator = By.cssSelector("b-main-navigation__dropdown-column");
 
-    private WebElement categoryTitle;
-    private WebElement columnButton;
-
     private WebElement categoryLocator;
     private List<WebElement> columns;
 
@@ -22,13 +19,11 @@ public class CategoryOfDropDown {
     }
 
     public WebElement getCategoryTitle() {
-        categoryTitle = categoryLocator.findElement(categoryTitleLocator);
-        return categoryTitle;
+        return categoryLocator.findElement(categoryTitleLocator);
     }
 
     public WebElement getColumnButton() {
-        columnButton = categoryLocator.findElement(categoryButtonLocator);
-        return columnButton;
+        return categoryLocator.findElement(categoryButtonLocator);
     }
 
     public Column getColumn(Integer numberOfColumn) {

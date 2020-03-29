@@ -13,11 +13,6 @@ public class Header {
     private static final By fastSearchBarLocator = By.cssSelector(".fast-search__input");
     private static final By onlinerLogoLocator = By.cssSelector(".onliner_logo");
 
-    private NavigationBar navigationBar;
-    private UserBar userBar;
-    private WebElement fastSearchBar;
-    private WebElement onlinerLogo;
-
     private WebDriver driver;
 
     public Header(WebDriver driver) {
@@ -25,22 +20,18 @@ public class Header {
     }
 
     public NavigationBar getNavigationBar() {
-        navigationBar = new NavigationBar(driver.findElement(navigationBarLocator), driver);
-        return navigationBar;
+        return new NavigationBar(driver.findElement(navigationBarLocator), driver);
     }
 
     public UserBar getUserBar() {
-        userBar = new UserBar(driver.findElement(userBarLocator),driver);
-        return userBar;
+        return new UserBar(driver.findElement(userBarLocator), driver);
     }
 
     public WebElement getFastSearchBar() {
-        fastSearchBar = driver.findElement(fastSearchBarLocator);
-        return fastSearchBar;
+        return driver.findElement(fastSearchBarLocator);
     }
 
     public WebElement getOnlinerLogo() {
-        onlinerLogo = driver.findElement(onlinerLogoLocator);
-        return onlinerLogo;
+        return driver.findElement(onlinerLogoLocator);
     }
 }

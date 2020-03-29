@@ -7,7 +7,7 @@ import pageObject.BasePage.BasePage;
 
 import java.util.List;
 
-public class ProductPage extends BasePage {
+public class CatalogPage extends BasePage {
 
     private static final By productOffersLocator = By.id("product-prices-body");
     private static final By navigationLinkLocator = By.cssSelector(".catalog-navigation-classifier__item-title");
@@ -19,7 +19,7 @@ public class ProductPage extends BasePage {
     private WebDriver driver;
 
 
-    public ProductPage(WebDriver driver) {
+    public CatalogPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
     }
@@ -35,7 +35,7 @@ public class ProductPage extends BasePage {
     }
 
     public ProductOffersPage getProductOffers() {
-        productOffers = new ProductOffersPage(driver.findElement(productOffersLocator),driver);
+        productOffers = new ProductOffersPage(driver.findElement(productOffersLocator), driver);
         return productOffers;
     }
 

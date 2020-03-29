@@ -3,24 +3,24 @@ package steps;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import pageObject.ProductPage.ProductPage;
+import pageObject.ProductPage.CatalogPage;
 
 public class ProductPageSteps extends BasePageSteps {
 
-    private ProductPage productPage;
+    private CatalogPage catalogPage;
 
     public ProductPageSteps(WebDriver driver) {
         super(driver);
-        productPage = PageFactory.initElements(driver, ProductPage.class);
+        catalogPage = PageFactory.initElements(driver, CatalogPage.class);
     }
 
     public void addCheapestOffer() {
-        productPage.getProductOffers().getCheapestOffer().getAddToCart().click();
+        catalogPage.getProductOffers().getCheapestOffer().getAddToCart().click();
     }
 
     public void openAllOffers() {
-        productPage.getAllOffersButton().click();
-        productPage.getProductOffers().getChangeDestination().click();
-        productPage.wait.until(ExpectedConditions.elementToBeClickable(productPage.getProductOffers().getClosePopUpButton())).click();
+        catalogPage.getAllOffersButton().click();
+        catalogPage.getProductOffers().getChangeDestination().click();
+        catalogPage.wait.until(ExpectedConditions.elementToBeClickable(catalogPage.getProductOffers().getClosePopUpButton())).click();
     }
 }

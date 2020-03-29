@@ -17,8 +17,12 @@ public class SearchPageSteps {
         searchPage.getSearchInputField().sendKeys(searchText);
     }
 
-    public void openSearchResult(Integer index) {
-        searchPage.getCatalogResultField().getResultProductsList().get(index).click();
+    public void openSearchResult(int indexOfItem) {
+        searchPage.getCatalogResultField().getSearchResult(indexOfItem).click();
+    }
+
+    public void addToCompareList(int indexOfItem) {
+        searchPage.getCatalogResultField().getCompareBox(indexOfItem).click();
     }
 
 }

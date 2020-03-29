@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class LoginPage {
+
     public enum LoginPageButton {
         INSERT(".auth-button_primary"),
         NAME("[placeholder=\"Ник или e-mail\"]"),

@@ -1,10 +1,7 @@
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import steps.CartPageSteps;
-import steps.MainPageSteps;
-import steps.ProductPageSteps;
-import steps.SearchPageSteps;
+import steps.*;
 
 public class FirstQuest extends WebDriverSettings {
 
@@ -12,6 +9,7 @@ public class FirstQuest extends WebDriverSettings {
     ProductPageSteps productPageSteps;
     CartPageSteps cartPageSteps;
     SearchPageSteps searchPageSteps;
+    ComparePageSteps comparePageSteps;
 
     @BeforeTest
     public void startInit() {
@@ -23,12 +21,11 @@ public class FirstQuest extends WebDriverSettings {
         String SEARCH_TEXT = "Пылесос";
         int[] searchIndex = {1, 2};
 
-        for (int i = 0; i < searchIndex.length; i++) {
-            mainPageSteps.search(SEARCH_TEXT);
-
+        for (int index : searchIndex) {
+            mainPageSteps.openSearchPage(SEARCH_TEXT);
             searchPageSteps = new SearchPageSteps(driver);
             searchPageSteps.switchToSearchPage(SEARCH_TEXT);
-            searchPageSteps.openSearchResult(searchIndex[i]);
+            searchPageSteps.openSearchResult(index);
 
             productPageSteps = new ProductPageSteps(driver);
             productPageSteps.openAllOffers();
@@ -43,6 +40,19 @@ public class FirstQuest extends WebDriverSettings {
 
     @Test
     public void compareTest() {
-        
+        String SEARCH_TEXT = "Пылесос";
+        int[] searchIndex = {1, 2};
+
+        mainPageSteps.openSearchPage(SEARCH_TEXT);
+        searchPageSteps = new SearchPageSteps(driver);
+        searchPageSteps.switchToSearchPage(SEARCH_TEXT);
+
+        for (int index : searchIndex) {
+            searchPageSteps.addToCompareList(index);
+        }
+        mainPageSteps.openComparePage();
+        comparePageSteps = new ComparePageSteps(driver);
+
+        Assert.assertEquals(comparePageSteps.amountOfCompareItems(), searchIndex.length, "Колличество товаров на странице сравнения не совпадает с заданием");
     }
 }

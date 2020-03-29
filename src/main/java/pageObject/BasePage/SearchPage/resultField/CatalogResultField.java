@@ -6,10 +6,11 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class CatalogResultField {
+
+    private static final By compareBoxLocator = By.cssSelector(".i-checkbox_yellow");
     private static final By resultCategoryLocator = By.cssSelector(".result__item_category");
     private static final By resultProductLocator = By.cssSelector(".result__item_product");
-    private List<WebElement> resultCategoriesList;
-    private List<WebElement> resultProductsList;
+
     private WebElement searchResults;
 
     public CatalogResultField(WebElement searchResults) {
@@ -17,11 +18,19 @@ public class CatalogResultField {
     }
 
     public List<WebElement> getResultCategoriesList() {
-        return resultCategoriesList = searchResults.findElements(resultCategoryLocator);
+        return searchResults.findElements(resultCategoryLocator);
     }
 
     public List<WebElement> getResultProductsList() {
-        return resultProductsList = searchResults.findElements(resultProductLocator);
+        return searchResults.findElements(resultProductLocator);
+    }
+
+    public WebElement getSearchResult(int indexOfItem) {
+        return getResultProductsList().get(indexOfItem);
+    }
+
+    public WebElement getCompareBox(int indexOfItem) {
+        return getResultProductsList().get(indexOfItem).findElement(compareBoxLocator);
     }
 
 }

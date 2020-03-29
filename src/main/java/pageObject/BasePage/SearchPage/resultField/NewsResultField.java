@@ -10,9 +10,9 @@ import java.util.List;
 public class NewsResultField {
     private static final By resultNewsLocator = By.cssSelector(".search__result ");
     private static final By searchFilterBarLocator = By.cssSelector(".search__filter-list");
+
     private WebElement searchResults;
     private WebDriver driver;
-    private List<WebElement> resultNews;
 
     public NewsResultField(WebElement searchResults, WebDriver driver) {
         this.searchResults = searchResults;
@@ -20,7 +20,7 @@ public class NewsResultField {
     }
 
     public List<WebElement> getResultNews() {
-        return resultNews = searchResults.findElements(resultNewsLocator);
+        return searchResults.findElements(resultNewsLocator);
     }
 
     public NewsSearchFilterBar getFilterBar() {
