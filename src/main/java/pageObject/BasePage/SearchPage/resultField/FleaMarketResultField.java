@@ -6,8 +6,9 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class FleaMarketResultField {
+
     private static final By resultWidgetLocator = By.cssSelector(".search__widget-item");
-    private static final By resultBaraholkaLocator = By.cssSelector(".result__item_baraholka");
+    private static final By resultFleaMarketLocator = By.cssSelector(".result__item_baraholka");
     private static final By searchAllButtonLocator = By.cssSelector(".search__all-button");
 
     private WebElement searchResults;
@@ -20,8 +21,8 @@ public class FleaMarketResultField {
         return searchResults.findElements(resultWidgetLocator);
     }
 
-    public List<WebElement> getResultBaraholka() {
-        return searchResults.findElements(resultBaraholkaLocator);
+    public List<WebElement> getResultFleaMarket() {
+        return searchResults.findElements(resultFleaMarketLocator);
     }
 
     public WebElement getSearchAllButton() {

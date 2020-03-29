@@ -21,16 +21,16 @@ public class CatalogResultField {
         return searchResults.findElements(resultCategoryLocator);
     }
 
-    public List<WebElement> getResultProductsList() {
+    public List<WebElement> getResultItemsList() {
         return searchResults.findElements(resultProductLocator);
     }
 
     public WebElement getSearchResult(int indexOfItem) {
-        return getResultProductsList().get(indexOfItem);
+        return getResultItemsList().get(indexOfItem);
     }
 
     public WebElement getCompareBox(int indexOfItem) {
-        return getResultProductsList().get(indexOfItem).findElement(compareBoxLocator);
+        return getResultItemsList().get(indexOfItem).findElement(compareBoxLocator);
     }
 
 }

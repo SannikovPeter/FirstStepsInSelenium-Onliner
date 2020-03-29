@@ -3,13 +3,15 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import steps.*;
 
+import static pageObject.BasePage.SearchPage.SearchPage.SearchCategory.CATALOG;
+
 public class FirstQuest extends WebDriverSettings {
 
-    MainPageSteps mainPageSteps;
-    ProductPageSteps productPageSteps;
-    CartPageSteps cartPageSteps;
-    SearchPageSteps searchPageSteps;
-    ComparePageSteps comparePageSteps;
+    private MainPageSteps mainPageSteps;
+    private ProductPageSteps productPageSteps;
+    private CartPageSteps cartPageSteps;
+    private SearchPageSteps searchPageSteps;
+    private ComparePageSteps comparePageSteps;
 
     @BeforeTest
     public void startInit() {
@@ -24,8 +26,9 @@ public class FirstQuest extends WebDriverSettings {
         for (int index : searchIndex) {
             mainPageSteps.openSearchPage(SEARCH_TEXT);
             searchPageSteps = new SearchPageSteps(driver);
-            searchPageSteps.switchToSearchPage(SEARCH_TEXT);
-            searchPageSteps.openSearchResult(index);
+            searchPageSteps.switchFrameToSearchPage(SEARCH_TEXT);
+            searchPageSteps.selectSearchCategory(CATALOG);
+            searchPageSteps.openCatalogSearchResult(index);
 
             productPageSteps = new ProductPageSteps(driver);
             productPageSteps.openAllOffers();
@@ -45,7 +48,8 @@ public class FirstQuest extends WebDriverSettings {
 
         mainPageSteps.openSearchPage(SEARCH_TEXT);
         searchPageSteps = new SearchPageSteps(driver);
-        searchPageSteps.switchToSearchPage(SEARCH_TEXT);
+        searchPageSteps.switchFrameToSearchPage(SEARCH_TEXT);
+        searchPageSteps.selectSearchCategory(CATALOG);
 
         for (int index : searchIndex) {
             searchPageSteps.addToCompareList(index);

@@ -8,25 +8,21 @@ import pageObject.BasePage.SearchPage.resultField.FleaMarketResultField;
 import pageObject.BasePage.SearchPage.resultField.ForumResultField;
 import pageObject.BasePage.SearchPage.resultField.NewsResultField;
 
-import java.util.List;
-
-import static pageObject.BasePage.SearchPage.SearchPage.SearchCategory.*;
-
 public class SearchPage {
 
     private static final By searchInputFieldLocator = By.cssSelector(".search__input");
     private static final By closeButtonLocator = By.cssSelector(".search__close");
-    private static final By searchTabLocator = By.cssSelector(".search__tabs-item");
+    private static final By searchCategoryButtonLocator = By.cssSelector(".search__tabs-item");
     private static final By searchResultFieldLocator = By.cssSelector(".search__results");
+    private static final By newsFilterBarLocator = By.cssSelector(".search__filter");
 
     public enum SearchCategory {CATALOG, NEWS, FLEA_MARKET, FORUM}
 
-    private List<WebElement> searchTab;
+    private NewsSearchFilterBar newsSearchFilterBar;
     private WebDriver driver;
 
     public SearchPage(WebDriver driver) {
         this.driver = driver;
-        searchTab = driver.findElements(searchTabLocator);
     }
 
     public WebElement getSearchInputField() {
@@ -37,30 +33,27 @@ public class SearchPage {
         return driver.findElement(closeButtonLocator);
     }
 
-    private WebElement getSearchCategoryButton(SearchCategory searchCategory) {
-        return searchTab.get(searchCategory.ordinal());
+    public WebElement getSearchCategoryButton(SearchCategory searchCategory) {
+        return driver.findElements(searchCategoryButtonLocator).get(searchCategory.ordinal());
     }
 
-//    public getResultField(SearchCategory searchCategory){}
-
     public CatalogResultField getCatalogResultField() {
-        getSearchCategoryButton(CATALOG).click();
         return new CatalogResultField(driver.findElement(searchResultFieldLocator));
     }
 
     public NewsResultField getNewsResultField() {
-        getSearchCategoryButton(NEWS).click();
-        return new NewsResultField(driver.findElement(searchResultFieldLocator), driver);
+        return new NewsResultField(driver.findElement(searchResultFieldLocator));
     }
 
     public FleaMarketResultField getFleaMarketResultField() {
-        getSearchCategoryButton(FLEA_MARKET).click();
         return new FleaMarketResultField(driver.findElement(searchResultFieldLocator));
     }
 
     public ForumResultField getForumResultField() {
-        getSearchCategoryButton(FORUM).click();
         return new ForumResultField(driver.findElement(searchResultFieldLocator));
     }
 
+    public NewsSearchFilterBar getNewsSearchFilterBar() {
+        return new NewsSearchFilterBar(driver.findElement(newsFilterBarLocator));
+    }
 }
